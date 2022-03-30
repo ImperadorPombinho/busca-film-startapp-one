@@ -2,8 +2,8 @@
 import styled from "styled-components";
 
 export const BoxLista = styled.div`
-    height: 60%;
-    width: 90%;
+    height: 50%;
+    width:70%;
     background-color: inherit;
     display: flex;
     flex-direction: row;
@@ -11,6 +11,9 @@ export const BoxLista = styled.div`
     justify-content: space-around;
     align-items: center;
     overflow-y: scroll;
+    ::-webkit-scrollbar{
+        display: none;
+    }
 `;
 
 export const CardFilme = styled.div`
@@ -25,7 +28,7 @@ export const CardFilme = styled.div`
     margin-bottom: 5%;
     margin-top: 2%;
     :hover{
-        transition: 1.5s;
+        transition: 0.74s;
         background-color: #755B0C;
     }
 
@@ -37,12 +40,7 @@ export const TituloFilme = styled.h2`
     color: white;
 
 `;
-export const BoxPoster = styled.div`
-    background-color: inherit;
-    width: 90%;
-    height: 90%;
-`;
 export const PosterFilme = styled.img`
     width: 100%;
-    height: 80%;
+    height: 70%;
 `;

@@ -1,5 +1,5 @@
 import React from "react";
-import { BoxLista, BoxPoster, CardFilme, PosterFilme, TituloFilme } from "./styledListFilm";
+import { BoxLista, CardFilme, PosterFilme, TituloFilme } from "./styledListFilm";
 import Teste from '../../../assets/teste.svg'
 
 interface teste{
