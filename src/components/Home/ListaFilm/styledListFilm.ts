@@ -23,10 +23,13 @@ export const CardFilme = styled.div`
     align-items: center;
     justify-content: space-around;
     margin-bottom: 5%;
+    margin-top: 2%;
     :hover{
         transition: 1.5s;
         background-color: #755B0C;
     }
+
+
 `;
 export const TituloFilme = styled.h2`
     font-size: 30px;
@@ -42,4 +45,4 @@ export const BoxPoster = styled.div`
 export const PosterFilme = styled.img`
     width: 100%;
     height: 80%;
-`
+`;
