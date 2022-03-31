@@ -18,7 +18,7 @@ export const BoxLista = styled.div`
 
 export const CardFilme = styled.div`
     width: 25.3%;
-    height: 100%;
+    height: 90%;
     background-color: #C29613;
     border-radius: 20px;
     display: flex;

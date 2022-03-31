@@ -17,18 +17,27 @@ export const ImagemFilme =    styled.img`
 `;
 
 export const InformaBox = styled.div`
-    width: 20%;
+    width: 40%;
+    border-radius: 20px;
+
     display: flex;
+    background-color: #C29613;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 `
 
 export const TituloDoFilme = styled.h1`
-    color: black;
+    color: white;
     font-size: 35px;
 `
 export const InformacoesFilme = styled.p`
-    color: black;
-    font-size: 15px;
+    color: white;
+    font-size: 22px;
+`
+export const LinhaBranca = styled.div`
+    height: 1%;
+    width: 100%;
+    border: 1px solid white;
+
 `

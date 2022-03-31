@@ -1,10 +1,11 @@
 import React from "react"  
 import { useParams } from "react-router-dom";
 import InformaFilme from "../../components/Filme/InformaFilme/InformaFilme";
+import OverViewFilme from "../../components/Filme/OverviewFilme/OverviewFilme";
 import TagLineFilme from "../../components/Filme/TagLineFilme/TagLineFilme";
 import NavBar from "../../components/NavBar/NavBar";
 import { View } from "../styledGlobal";
-import { BoxInformaFilme, BoxTagLineFilme } from "./styledFilme";
+import { BoxInformaFilme, BoxOverviewFilme, BoxTagLineFilme } from "./styledFilme";
 
 type Param = {
     id: string
@@ -22,6 +23,9 @@ const Filme =() => {
             <BoxTagLineFilme>
                 <TagLineFilme />
             </BoxTagLineFilme>
+            <BoxOverviewFilme>
+                <OverViewFilme />
+            </BoxOverviewFilme>
         </View>
     );
 }
