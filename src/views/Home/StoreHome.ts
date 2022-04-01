@@ -11,7 +11,8 @@ export class Store{
             {
                 listaFilme: observable,
                 carregando: observable,
-                fetch: action
+                buscarFilmes: action,
+                buscarFilmesPesquisados: action
             }
             
             );
@@ -24,9 +25,11 @@ export class Store{
     }
     public carregando: boolean = false
 
-    public fetch = async (page: number) => {
-        this.listaFilme = await api.getFilmes(page);
-        console.log(this.listaFilme)    
+    public buscarFilmes = async (page: number) => {
+        this.listaFilme = await api.getFilmes(page);   
+    }
+    public buscarFilmesPesquisados = async (termoPesquisado: string, page: number) => {
+        this.listaFilme = await api.getFilmeBuscado(termoPesquisado, page);
     }
 
 }

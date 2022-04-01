@@ -1,7 +1,7 @@
 import React from "react";
 import { BoxLista, CardFilme, PosterFilme, TituloFilme } from "./styledListFilm";
 import { Resultados } from "../../../types/listaFilme";
-
+import Teste from "../../../assets/teste.svg"
 
 
 type Param = {
@@ -14,8 +14,14 @@ const ListaFilm = ({results}: Param) => {
         <BoxLista>
             {
                 results.map((resposta) => (
-                    <CardFilme to={urlPaginaFilme + resposta.id} key={resposta.id}>
-                        <PosterFilme src={urlBasicImage + resposta.poster_path} alt={resposta.title}/> 
+                    <CardFilme to={urlPaginaFilme + resposta.id} 
+                        key={resposta.id}>
+                        <PosterFilme src={
+                            resposta.poster_path === null ?
+                            Teste:
+                            urlBasicImage + resposta.poster_path
+                            } 
+                            alt={resposta.title}/> 
                         <TituloFilme>{resposta.title}</TituloFilme>
                     </CardFilme>
                 ))

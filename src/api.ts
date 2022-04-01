@@ -18,14 +18,22 @@ class API {
         this.apiKey + 
         "&language=pt-BR&page="+
         pagina;
-        console.log(pagina)
-        console.log(aSerBuscado)
-        console.log(this.base.get(aSerBuscado));
         return this.base.get(aSerBuscado).then(response => response.data);
     }
     public async getFilme(id: string): Promise<Filme>{
         const aSerBuscado: string = "/movie/"+id+"?"+this.apiKey+"&language=pt-BR"
-        return this.base.get(aSerBuscado);
+        return this.base.get(aSerBuscado).then(response => response.data);
+    }
+    public async getFilmeBuscado(termoPesquisado: string, page: number): Promise<ListaFilmes>{
+        const aSerBuscado: string = "/search/movie?" + 
+        this.apiKey +
+        "&language=pt-BR&query=" + 
+        termoPesquisado + 
+        "&page=" + 
+        page + 
+        "&include_adult=false"
+        console.log(aSerBuscado)
+        return this.base.get(aSerBuscado).then(response => response.data);
     }
 
 

@@ -11,10 +11,25 @@ import {  ConfigView } from "./styledHome";
 const Home: React.FC = () => {
     const[page, setPage] = useState(1)
     const store = useLocalObservable(() => new Store());
-    
+    const [estaDigitando, setEstaDigitando] = useState<boolean>(false);
+    const [textoBusca, setTextoBusca] = useState<string>("");
     useEffect(() =>{
-        store.fetch(page);
-    }, [page, store]);
+        console.log(page)
+        if(!estaDigitando && (textoBusca !== "" || textoBusca === null)){
+            let id_time  = setTimeout(() => {
+                console.log("pog")
+            }, 10)  
+            clearTimeout(id_time)
+            id_time = setTimeout(() => {
+                store.buscarFilmesPesquisados(textoBusca, page)
+            }, 2000)  
+        }else{
+            store.buscarFilmes(page);
+        }
+        console.log(store.listaFilme)
+        
+    }, [page, store, estaDigitando, textoBusca]);
+
     const proximaPagina = () => {
         if(page < store.listaFilme.total_pages){
             setPage(page + 1);
@@ -34,14 +49,24 @@ const Home: React.FC = () => {
         <View>
             <NavBar />
                 <ConfigView>
-                    <Busca />
+                    <Busca 
+                    setEstaDigitando={setEstaDigitando} 
+                    estaDigitando={estaDigitando} 
+                    setTextoBusca={setTextoBusca}
+                    textoBusca={textoBusca}
+                    />
                     <Pagination 
                     page={page} 
                     totalPage={store.listaFilme.total_pages} 
                     anteriorPagina={anteriorPagina}
                     proximaPagina={proximaPagina}
                     />
-                    <ListaFilm results={store.listaFilme.results} />
+                    <ListaFilm 
+                    results={ 
+                    store.listaFilme.results
+                } 
+                    
+                    />
                 </ConfigView>
             
 
