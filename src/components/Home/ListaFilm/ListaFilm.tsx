@@ -1,50 +1,22 @@
 import React from "react";
 import { BoxLista, CardFilme, PosterFilme, TituloFilme } from "./styledListFilm";
-import Teste from '../../../assets/teste.svg'
+import { Resultados } from "../../../types/listaFilme";
 
-interface teste{
-    nomeFilme: string,
-    imagem: typeof Teste
+
+
+type Param = {
+    results: Resultados[]
 }
-
-
-const array: teste[] = [
-    {
-        nomeFilme: "ele sim",
-        imagem: Teste
-    },
-    {
-        nomeFilme: "ele nao casou",
-        imagem: Teste
-    },
-    {
-        nomeFilme: "ele ja",
-        imagem: Teste
-    },
-    {
-        nomeFilme: "ele ssss",
-        imagem: Teste
-    },
-    {
-        nomeFilme: "ele siaaam",
-        imagem: Teste
-    },
-    {
-        nomeFilme: "ele ssssim",
-        imagem: Teste
-    },
-
-]
-
-
-const ListaFilm = () => {
+const ListaFilm = ({results}: Param) => {
+    const urlBasicImage = "https://image.tmdb.org/t/p/w500"
+    const urlPaginaFilme = "/filmes/"
     return(
         <BoxLista>
             {
-                array.map((resposta) => (
-                    <CardFilme key={resposta.nomeFilme}>
-                        <PosterFilme src={resposta.imagem} alt="alou"/> 
-                        <TituloFilme>{resposta.nomeFilme}</TituloFilme>
+                results.map((resposta) => (
+                    <CardFilme to={urlPaginaFilme + resposta.id} key={resposta.id}>
+                        <PosterFilme src={urlBasicImage + resposta.poster_path} alt={resposta.title}/> 
+                        <TituloFilme>{resposta.title}</TituloFilme>
                     </CardFilme>
                 ))
             }

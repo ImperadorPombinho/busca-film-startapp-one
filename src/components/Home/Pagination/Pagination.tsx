@@ -5,7 +5,14 @@ import { Button } from "@mui/material";
 import { ButtonProps } from "@mui/material";
 import { brown } from "@mui/material/colors";
 
-const Pagination = () => {
+type Param = {
+    page: number,
+    totalPage: number,
+    anteriorPagina: Function,
+    proximaPagina: Function
+}
+
+const Pagination = ({page, totalPage, anteriorPagina, proximaPagina}: Param) => {
     const Botao = styled(Button)<ButtonProps>(({theme}) => ({
         color: theme.palette.getContrastText(brown[800]),
         backgroundColor: brown[500],
@@ -19,19 +26,29 @@ const Pagination = () => {
 
     return(
         <BoxPagination>
-            <Botao
-            size="medium"
-            variant="contained"
-            >
-                Anterior
-            </Botao>
-            <TextPagina>1 de ???</TextPagina>
-            <Botao 
-            size="medium"
-            variant="contained"
-            >
-                Próximo
-            </Botao>
+            {
+                page === 1 ? null:
+                <Botao
+                size="medium"
+                variant="contained"
+                onClick={() => {anteriorPagina()}}
+                >
+                    Anterior
+                </Botao>
+            }
+            
+            <TextPagina>{page} de {totalPage}</TextPagina>
+            {
+                page === totalPage ? null:
+                <Botao 
+                size="medium"
+                variant="contained"
+                onClick={() => {proximaPagina()}}
+                >
+                    Próximo
+                </Botao>
+            }
+
         </BoxPagination>
     );
 }

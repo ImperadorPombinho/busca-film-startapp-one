@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const BoxLista = styled.div`
@@ -16,7 +17,7 @@ export const BoxLista = styled.div`
     }
 `;
 
-export const CardFilme = styled.div`
+export const CardFilme = styled(Link)`
     width: 25.3%;
     height: 90%;
     background-color: #C29613;
@@ -35,9 +36,11 @@ export const CardFilme = styled.div`
 
 `;
 export const TituloFilme = styled.h2`
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
     color: white;
+    text-align: center;
+    margin-top: 2px;
 
 `;
 export const PosterFilme = styled.img`
