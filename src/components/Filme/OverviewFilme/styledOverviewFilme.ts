@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const BoxOverview = styled.div`
-    background-color: #444444;
+    background-color: #000;
     height: 70%;
     width: 30%;
     border-radius: 30px;

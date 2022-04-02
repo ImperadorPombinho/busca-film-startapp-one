@@ -2,7 +2,7 @@ import { Chip } from "@mui/material";
 import styled from "styled-components";
 
 export const BoxImagem = styled.div`
-    background-color: #444444;
+    background-color: #000;
     height: 300px;
     width: 300px;
     border-radius: 20px;
@@ -22,10 +22,11 @@ export const InformaBox = styled.div`
     border-radius: 20px;
     height: 82%;
     display: flex;
-    background-color: #444444;
+    background-color: #000;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `
 
 export const TituloDoFilme = styled.h1`

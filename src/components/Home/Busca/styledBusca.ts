@@ -5,7 +5,6 @@ export const BoxBusca = styled.div`
     width: 60%;
     height: 25%;
     margin-top: 5%;
-    margin-bottom: 5%;
     border-radius: 25px;
     background-color: #000000;
     display: flex;

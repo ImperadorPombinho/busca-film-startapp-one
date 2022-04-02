@@ -27,7 +27,7 @@ const InformaFilme = ({posterPath, title, realeseDate, spokenLanguages}:Param) =
         <InformaBox>
             <TituloDoFilme>{title}</TituloDoFilme>
             
-            <InformacoesFilme>{realeseDate}</InformacoesFilme>
+            <InformacoesFilme color="white">{realeseDate}</InformacoesFilme>
             <BoxLinguagem> 
                 {
                     spokenLanguages.map(linguas => (

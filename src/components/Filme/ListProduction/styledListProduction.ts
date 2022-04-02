@@ -6,11 +6,12 @@ export const BoxList = styled.div`
     height: 60%;
     border-radius: 30px;
     width: 25%;
-    background-color:#444444;
+    background-color:#000;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     
 `;
 
