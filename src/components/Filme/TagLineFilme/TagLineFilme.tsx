@@ -1,5 +1,6 @@
 import React from "react";
-import { LinhaPreta, TagLine } from "./styledTagLine";
+import { LinhaPreta } from "../styledComponentsFilme";
+import { TagLine } from "./styledTagLine";
 
 
 const TagLineFilme = () => {

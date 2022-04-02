@@ -32,7 +32,6 @@ class API {
         "&page=" + 
         page + 
         "&include_adult=false"
-        console.log(aSerBuscado)
         return this.base.get(aSerBuscado).then(response => response.data);
     }
 

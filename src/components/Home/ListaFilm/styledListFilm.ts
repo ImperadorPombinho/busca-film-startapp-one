@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const BoxLista = styled.div`
-    height: 50%;
+    height: 60%;
     width:70%;
     background-color: inherit;
     display: flex;
@@ -19,7 +19,7 @@ export const BoxLista = styled.div`
 
 export const CardFilme = styled(Link)`
     width: 25.3%;
-    height: 90%;
+    height: 100%;
     background-color: #C29613;
     border-radius: 20px;
     display: flex;
@@ -36,7 +36,7 @@ export const CardFilme = styled(Link)`
 
 `;
 export const TituloFilme = styled.h2`
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 600;
     color: white;
     text-align: center;
@@ -45,5 +45,6 @@ export const TituloFilme = styled.h2`
 `;
 export const PosterFilme = styled.img`
     width: 100%;
-    height: 70%;
+    height: 90%;
+    border-radius: 20px;
 `;

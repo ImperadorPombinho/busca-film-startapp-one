@@ -4,13 +4,13 @@ import Busca from "../../components/Home/Busca/Busca";
 import ListaFilm from "../../components/Home/ListaFilm/ListaFilm";
 import Pagination from "../../components/Home/Pagination/Pagination";
 import NavBar from "../../components/NavBar/NavBar";
-import { View } from "../styledGlobal";
-import { Store } from "./StoreHome";
+import { DivScroll, View } from "../styledGlobal";
+import { StoreHome } from "./StoreHome";
 import {  ConfigView } from "./styledHome";
 
 const Home: React.FC = () => {
     const[page, setPage] = useState(1)
-    const store = useLocalObservable(() => new Store());
+    const store = useLocalObservable(() => new StoreHome());
     const [estaDigitando, setEstaDigitando] = useState<boolean>(false);
     const [textoBusca, setTextoBusca] = useState<string>("");
     useEffect(() =>{
@@ -47,7 +47,7 @@ const Home: React.FC = () => {
     
     return(
         <View>
-            <NavBar />
+            <NavBar /> 
                 <ConfigView>
                     <Busca 
                     setEstaDigitando={setEstaDigitando} 
@@ -68,8 +68,6 @@ const Home: React.FC = () => {
                     
                     />
                 </ConfigView>
-            
-
         </View>
     );
 }

@@ -3,12 +3,14 @@ import styled from "styled-components"
 
 export const BoxBar = styled.div`
     width: 100%;
-    height: 9.5%;
+    height: 6.5%;
+    position: fixed;
     background-color: #C29613;
     display:  flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 5%;
 `;
 export const ConfigTitulo = styled.h1`
     color: white;

@@ -2,7 +2,7 @@ import { action, makeObservable, observable } from "mobx";
 import api from "../../api";
 import {ListaFilmes} from "../../types/listaFilme";
 
-export class Store{
+export class StoreHome{
     constructor(){
 
         makeObservable(

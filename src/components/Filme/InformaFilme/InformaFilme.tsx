@@ -1,6 +1,7 @@
 import React from "react";
-import { BoxImagem, ImagemFilme, InformaBox, InformacoesFilme, TituloDoFilme, LinhaBranca } from "./styledInformaFilme";
+import { BoxImagem, ImagemFilme, InformaBox, InformacoesFilme, TituloDoFilme } from "./styledInformaFilme";
 import Teste from '../../../assets/teste.svg'
+import { LinhaBranca } from "../styledComponentsFilme";
 
 const InformaFilme = () => {
     return(

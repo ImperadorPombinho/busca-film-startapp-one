@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const BoxBusca = styled.div`
     width: 60%;
     height: 25%;
+    margin-top: 5%;
     border-radius: 25px;
     background-color: #C29613;
     display: flex;

@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const BoxImagem = styled.div`
     background-color: #C29613;
-    height: 250px;
-    width: 250px;
+    height: 300px;
+    width: 300px;
     border-radius: 20px;
     display: flex;
     flex-direction: row;
@@ -19,7 +19,7 @@ export const ImagemFilme =    styled.img`
 export const InformaBox = styled.div`
     width: 40%;
     border-radius: 20px;
-
+    height: 82%;
     display: flex;
     background-color: #C29613;
     flex-direction: column;
@@ -34,10 +34,4 @@ export const TituloDoFilme = styled.h1`
 export const InformacoesFilme = styled.p`
     color: white;
     font-size: 22px;
-`
-export const LinhaBranca = styled.div`
-    height: 1%;
-    width: 100%;
-    border: 1px solid white;
-
 `
