@@ -27,16 +27,31 @@ const Filme =() => {
             <NavBar />
             <DivScroll>
                 <BoxInformaFilme>
-                    <InformaFilme />
+                    <InformaFilme  
+                    posterPath={storeFilme.filme.poster_path}
+                    title={storeFilme.filme.title}
+                    realeseDate={storeFilme.filme.release_date}
+                    spokenLanguages={storeFilme.filme.spoken_languages} 
+                    
+                    />
                 </BoxInformaFilme>
                 <BoxTagLineFilme>
-                    <TagLineFilme />
+                    <TagLineFilme 
+                    tagline={storeFilme.filme.tagline} 
+                    />
                 </BoxTagLineFilme>
                 <BoxOverviewFilme>
-                    <OverViewFilme />
+                    <OverViewFilme  
+                    overview={storeFilme.filme.overview}
+                    voteAverage={storeFilme.filme.vote_average}
+                    />
                 </BoxOverviewFilme>
                 <BoxListCompanies>
-                    <ListProductions />
+                    <ListProductions
+                    genero={storeFilme.filme.genres}
+                    productionCompanies={storeFilme.filme.production_companies}
+                    productionCountries={storeFilme.filme.production_countries}
+                    />
                 </BoxListCompanies>
             </DivScroll>
         </View>

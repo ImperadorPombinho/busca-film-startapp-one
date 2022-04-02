@@ -1,19 +1,19 @@
-interface Genero{
+export interface Genero{
     id: number;
     name: string;
 }
-interface ProductionCompanies{
+export interface ProductionCompanies{
     name: string;
     id: number;
     logo_path: string | null;
     origin_country: string;
 
 }
-interface ProductionCountries{
+export interface ProductionCountries{
     iso_3611_1: string;
     name: string;
 }
-interface SpokenLanguages{
+export interface SpokenLanguages{
     iso_639_1: string;
     name: string;
 }

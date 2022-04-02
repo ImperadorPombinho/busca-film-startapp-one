@@ -1,3 +1,4 @@
+import { Chip } from "@mui/material";
 import styled from "styled-components";
 
 export const BoxImagem = styled.div`
@@ -23,7 +24,7 @@ export const InformaBox = styled.div`
     display: flex;
     background-color: #C29613;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 `
 
@@ -32,6 +33,16 @@ export const TituloDoFilme = styled.h1`
     font-size: 35px;
 `
 export const InformacoesFilme = styled.p`
-    color: white;
+    color: ${props => props.color};
     font-size: 22px;
+    
 `
+export const BoxLinguagem = styled.div`
+    width: 80%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+`;

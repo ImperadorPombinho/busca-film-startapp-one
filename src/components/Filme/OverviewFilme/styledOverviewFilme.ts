@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const BoxOverview = styled.div`
     background-color: #C29613;
-    height: 60%;
+    height: 70%;
     width: 30%;
     border-radius: 30px;
     display: flex;
@@ -18,7 +18,7 @@ export const TituloOverview = styled.h2`
 
 export const Overview = styled.p`
     color: white;
-    font-size: 25px;
+    font-size: 19px;
 
 `;
 

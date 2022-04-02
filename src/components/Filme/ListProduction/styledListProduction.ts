@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const BoxList = styled.div`
     
-    height: 100%;
+    height: 60%;
     border-radius: 30px;
     width: 25%;
     background-color: #C29613;
