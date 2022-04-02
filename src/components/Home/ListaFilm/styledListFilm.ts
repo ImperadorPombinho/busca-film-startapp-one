@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -18,9 +17,10 @@ export const BoxLista = styled.div`
 `;
 
 export const CardFilme = styled(Link)`
+    
     width: 25.3%;
-    height: 100%;
-    background-color: #C29613;
+    height: 90%;
+    background-color: ${props => props.color};
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -28,17 +28,18 @@ export const CardFilme = styled(Link)`
     justify-content: space-around;
     margin-bottom: 5%;
     margin-top: 2%;
+    text-decoration: none;
     :hover{
         transition: 0.74s;
-        background-color: #755B0C;
     }
+    
 
 
 `;
 export const TituloFilme = styled.h2`
-    font-size: 17px;
+    font-size: 25px;
     font-weight: 600;
-    color: white;
+    color: ${props => props.color};
     text-align: center;
     margin-top: 2px;
 

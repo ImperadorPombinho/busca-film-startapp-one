@@ -5,12 +5,14 @@ export const BoxBusca = styled.div`
     width: 60%;
     height: 25%;
     margin-top: 5%;
+    margin-bottom: 5%;
     border-radius: 25px;
-    background-color: #C29613;
+    background-color: #000000;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    border: 1px solid white;
     
 `
 export const Titulo = styled.h3`

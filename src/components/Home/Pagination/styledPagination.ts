@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const BoxPagination = styled.nav`
     width: 60%;
-    height: 12.6%;
+    height: 13.6%;
     background-color: inherit;
     display: flex;
     flex-direction: row;
@@ -12,6 +12,6 @@ export const BoxPagination = styled.nav`
 
 export const TextPagina = styled.p`
     font-size: 20px;
-    color: #755B0C;
+    color: white;
     font-weight: 900;
 `;

@@ -1,5 +1,5 @@
 import React from "react";
-import { LinhaPreta } from "../styledComponentsFilme";
+import { LinhaBranca } from "../styledComponentsFilme";
 import { TagLine } from "./styledTagLine";
 
 type Param = {
@@ -15,7 +15,7 @@ const TagLineFilme = ({tagline}: Param) => {
                 <TagLine>{tagline}</TagLine>
             }
             
-            <LinhaPreta />
+            <LinhaBranca defaultValue={100} />
         </>
     );
 }

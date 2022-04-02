@@ -6,7 +6,7 @@ export const BoxList = styled.div`
     height: 60%;
     border-radius: 30px;
     width: 25%;
-    background-color: #C29613;
+    background-color:#444444;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -24,9 +24,9 @@ export const TituloBox = styled.h2`
 
 export const ListaTexto = styled.div`
     width: 100%;
-    height: 300;
     background-color: inherit;
-    overflow-y: scroll;
+    border-radius: 30px;
+    
     
 `;
 

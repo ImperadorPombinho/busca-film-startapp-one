@@ -4,31 +4,36 @@ import Busca from "../../components/Home/Busca/Busca";
 import ListaFilm from "../../components/Home/ListaFilm/ListaFilm";
 import Pagination from "../../components/Home/Pagination/Pagination";
 import NavBar from "../../components/NavBar/NavBar";
-import { DivScroll, View } from "../styledGlobal";
+import { View } from "../styledGlobal";
 import { StoreHome } from "./StoreHome";
 import {  ConfigView } from "./styledHome";
 
 const Home: React.FC = () => {
     const[page, setPage] = useState(1)
     const store = useLocalObservable(() => new StoreHome());
-    const [estaDigitando, setEstaDigitando] = useState<boolean>(false);
+    const [estaDigitando, setEstaDigitando] = useState<boolean>(true);
     const [textoBusca, setTextoBusca] = useState<string>("");
+    let [intervalo, setIntervalo] = useState<number>(0)
     useEffect(() =>{
         console.log(page)
-        if(!estaDigitando && (textoBusca !== "" || textoBusca === null)){
-            let id_time  = setTimeout(() => {
-                console.log("pog")
-            }, 10)  
-            clearTimeout(id_time)
-            id_time = setTimeout(() => {
-                store.buscarFilmesPesquisados(textoBusca, page)
-            }, 2000)  
+        console.log(textoBusca)
+        if(!estaDigitando){
+            setIntervalo(intervalo + 1);
         }else{
-            store.buscarFilmes(page);
+            setIntervalo(0);
         }
-        console.log(store.listaFilme)
+        console.log("esperando: " + intervalo)
+        if(intervalo >= 200 &&(textoBusca !== "" || textoBusca === null || page > 1)){
+            store.buscarFilmesPesquisados(textoBusca, page);
+            setIntervalo(200)
+            setEstaDigitando(true)
+        }else if(textoBusca === "" || textoBusca === null){
+            store.buscarFilmes(page);
+            setIntervalo(0)
+            setEstaDigitando(true)
+        }
         
-    }, [page, store, estaDigitando, textoBusca]);
+    }, [page, store, estaDigitando, textoBusca, intervalo]);
 
     const proximaPagina = () => {
         if(page < store.listaFilme.total_pages){
@@ -50,10 +55,9 @@ const Home: React.FC = () => {
             <NavBar /> 
                 <ConfigView>
                     <Busca 
-                    setEstaDigitando={setEstaDigitando} 
-                    estaDigitando={estaDigitando} 
                     setTextoBusca={setTextoBusca}
-                    textoBusca={textoBusca}
+                    intervalo={intervalo}
+                    setEstaDigitando={setEstaDigitando}
                     />
                     <Pagination 
                     page={page} 

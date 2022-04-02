@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 
 export const LinhaBranca = styled.div`
-    height: 1%;
-    width: 100%;
+    
+    width: ${props => props.defaultValue}%;
     border: 1px solid white;
 `;
 export const LinhaPreta = styled.div `

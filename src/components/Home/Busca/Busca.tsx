@@ -3,25 +3,25 @@ import { BoxBusca, ConfigTextField, Titulo, Search } from "./styledBusca";
 
 type Param = {
     setEstaDigitando: Function,
-    estaDigitando: boolean,
     setTextoBusca: Function,
-    textoBusca: string
+    intervalo: number
 }
-const Busca = ({setEstaDigitando, estaDigitando, setTextoBusca, textoBusca}: Param) => {
+const Busca = ({setTextoBusca, intervalo, setEstaDigitando}: Param) => {
     
-    
-    useEffect(() => {
-        console.log("estaDigitando: " + estaDigitando + "\no que foi digitado: " + textoBusca);
-    }, [estaDigitando, textoBusca])
+
     return(
         <BoxBusca>
             <Titulo>Busque Aqui!</Titulo>
-            <ConfigTextField>
                 <Search 
                 variant="outlined"
                 fullWidth
-                size="medium"
+                size="small"
                 margin="normal"
+                style={{
+                    height: "23%",
+                    width: "80%"
+                }}
+
                 onChange={(event) => {
                     event.preventDefault();
                     setTextoBusca(event.target.value);
@@ -29,13 +29,14 @@ const Busca = ({setEstaDigitando, estaDigitando, setTextoBusca, textoBusca}: Par
                     
                 }}
                 onKeyUp={() => {
-                    setEstaDigitando(false);
+                    clearTimeout(intervalo)
+                    setEstaDigitando(false)
                 }}
-                onKeyDown={() => {
-                    setEstaDigitando(true);
+                onKeyDown={()=> {
+                    setEstaDigitando(true)
                 }}
+
                 />
-            </ConfigTextField>
         </BoxBusca>
     )
 }

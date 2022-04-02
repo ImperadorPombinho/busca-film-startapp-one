@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const View = styled.div`
     height: 100vh;
     width: 100vw;
-    background-color: #F5BD19;
+    background-color: #4D7388;
     overflow: scroll;
     ::-webkit-scrollbar{
         display: none;

@@ -23,12 +23,12 @@ const OverViewFilme = ({overview, voteAverage}: Param) => {
         <>
         <BoxOverview>
             <TituloOverview>Sinopse</TituloOverview>
-            <LinhaBranca />
+            <LinhaBranca defaultValue={80} />
             <Overview>{overview}</Overview>
         </BoxOverview>
         <BoxOverview>
             <TituloNota>Notas</TituloNota>
-            <LinhaBranca />
+            <LinhaBranca defaultValue={80} />
             <Nota color={saberCorNota(voteAverage)} >{voteAverage}</Nota>
         </BoxOverview>
         </>

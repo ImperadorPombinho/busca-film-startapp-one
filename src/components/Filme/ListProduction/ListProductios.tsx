@@ -15,7 +15,7 @@ const ListProductions = ({genero, productionCompanies, productionCountries}: Par
         <>
         <BoxList>
             <TituloBox>Generos</TituloBox>
-            <LinhaBranca />
+            <LinhaBranca  defaultValue={80} />
             <ListaTexto>
                 {
                     genero.map((resposta) => (
@@ -28,7 +28,7 @@ const ListProductions = ({genero, productionCompanies, productionCountries}: Par
         </BoxList>
         <BoxList>
             <TituloBox>Empresas</TituloBox>
-            <LinhaBranca />
+            <LinhaBranca defaultValue={80} />
             <ListaTexto>
                 {
                     productionCompanies.map((resposta) => (
@@ -41,7 +41,7 @@ const ListProductions = ({genero, productionCompanies, productionCountries}: Par
         </BoxList>
         <BoxList>
             <TituloBox>Países Produtores</TituloBox>
-            <LinhaBranca />
+            <LinhaBranca defaultValue={80} />
             <ListaTexto>
                 {
                     productionCountries.map((resposta) => (

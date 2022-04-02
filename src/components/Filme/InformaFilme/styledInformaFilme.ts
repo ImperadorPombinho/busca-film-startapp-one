@@ -2,7 +2,7 @@ import { Chip } from "@mui/material";
 import styled from "styled-components";
 
 export const BoxImagem = styled.div`
-    background-color: #C29613;
+    background-color: #444444;
     height: 300px;
     width: 300px;
     border-radius: 20px;
@@ -22,7 +22,7 @@ export const InformaBox = styled.div`
     border-radius: 20px;
     height: 82%;
     display: flex;
-    background-color: #C29613;
+    background-color: #444444;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
