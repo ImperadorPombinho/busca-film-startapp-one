@@ -14,7 +14,8 @@ const Home: React.FC = () => {
     const storeHome = useLocalObservable(() => new StoreHome());
     const [estaDigitando, setEstaDigitando] = useState<boolean>(true);
     const [textoBusca, setTextoBusca] = useState<string>("");
-    let [intervalo, setIntervalo] = useState<number>(0)
+    const [textoAntigo, setTextoAntigo] = useState<string>("");
+    const [intervalo, setIntervalo] = useState<number>(0)
     useEffect(() =>{
         console.log(page)
         console.log(textoBusca)
@@ -24,17 +25,20 @@ const Home: React.FC = () => {
             setIntervalo(0);
         }
         console.log("esperando: " + intervalo)
-        if(intervalo >= 200 &&(textoBusca !== "" || textoBusca === null || page > 1)){
+        if((intervalo >= 300 && (textoBusca !== "" || textoBusca !== null)) || (textoAntigo === textoBusca && textoAntigo !== "")){
             storeHome.buscarFilmesPesquisados(textoBusca, page);
-            setIntervalo(200)
+            setIntervalo(0)
             setEstaDigitando(true)
-        }else if(textoBusca === "" || textoBusca === null){
+            setTextoAntigo(textoBusca)
+
+        }else if((textoBusca === "" || textoBusca === null)){
             storeHome.buscarFilmes(page);
             setIntervalo(0)
             setEstaDigitando(true)
+            setTextoAntigo("")
         }
         
-    }, [page, storeHome, estaDigitando, textoBusca, intervalo]);
+    }, [page, storeHome, estaDigitando, textoBusca, intervalo, textoAntigo]);
 
     const proximaPagina = () => {
         if(page < storeHome.listaFilme.total_pages){
@@ -70,6 +74,7 @@ const Home: React.FC = () => {
                             <Busca 
                             setTextoBusca={setTextoBusca}
                             setEstaDigitando={setEstaDigitando}
+                            textoBusca={textoBusca}
                             />
                             <Pagination 
                             page={page} 

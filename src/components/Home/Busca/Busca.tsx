@@ -4,8 +4,9 @@ import { BoxBusca, Titulo, Search } from "./styledBusca";
 type Param = {
     setEstaDigitando: Function,
     setTextoBusca: Function,
+    textoBusca: string
 }
-const Busca = ({setTextoBusca, setEstaDigitando}: Param) => {
+const Busca = ({setTextoBusca, setEstaDigitando, textoBusca}: Param) => {
     
 
     return(
@@ -20,6 +21,7 @@ const Busca = ({setTextoBusca, setEstaDigitando}: Param) => {
                     height: "23%",
                     width: "80%"
                 }}
+                value={textoBusca}
 
                 onChange={(event) => {
                     event.preventDefault();
