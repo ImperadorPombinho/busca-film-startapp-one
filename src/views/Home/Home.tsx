@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import React, { useEffect, useState } from "react";
 import Busca from "../../components/Home/Busca/Busca";
@@ -9,8 +10,8 @@ import { StoreHome } from "./StoreHome";
 import {  ConfigView } from "./styledHome";
 
 const Home: React.FC = () => {
-    const[page, setPage] = useState(1)
-    const store = useLocalObservable(() => new StoreHome());
+    const [page, setPage] = useState(1)
+    const storeHome = useLocalObservable(() => new StoreHome());
     const [estaDigitando, setEstaDigitando] = useState<boolean>(true);
     const [textoBusca, setTextoBusca] = useState<string>("");
     let [intervalo, setIntervalo] = useState<number>(0)
@@ -24,19 +25,19 @@ const Home: React.FC = () => {
         }
         console.log("esperando: " + intervalo)
         if(intervalo >= 200 &&(textoBusca !== "" || textoBusca === null || page > 1)){
-            store.buscarFilmesPesquisados(textoBusca, page);
+            storeHome.buscarFilmesPesquisados(textoBusca, page);
             setIntervalo(200)
             setEstaDigitando(true)
         }else if(textoBusca === "" || textoBusca === null){
-            store.buscarFilmes(page);
+            storeHome.buscarFilmes(page);
             setIntervalo(0)
             setEstaDigitando(true)
         }
         
-    }, [page, store, estaDigitando, textoBusca, intervalo]);
+    }, [page, storeHome, estaDigitando, textoBusca, intervalo]);
 
     const proximaPagina = () => {
-        if(page < store.listaFilme.total_pages){
+        if(page < storeHome.listaFilme.total_pages){
             setPage(page + 1);
         }
         
@@ -54,23 +55,37 @@ const Home: React.FC = () => {
         <View>
             <NavBar /> 
                 <ConfigView>
-                    <Busca 
-                    setTextoBusca={setTextoBusca}
-        
-                    setEstaDigitando={setEstaDigitando}
-                    />
-                    <Pagination 
-                    page={page} 
-                    totalPage={store.listaFilme.total_pages} 
-                    anteriorPagina={anteriorPagina}
-                    proximaPagina={proximaPagina}
-                    />
-                    <ListaFilm 
-                    results={ 
-                    store.listaFilme.results
-                } 
+                    {
+                        storeHome.carregando ?
+                        <CircularProgress 
+                        variant="indeterminate" 
+                        color="secondary"
+                        style={{
+                            height: "10%",
+                            width: "10%"
+                        }}
+                        />
+                        :
+                        <>
+                            <Busca 
+                            setTextoBusca={setTextoBusca}
+                            setEstaDigitando={setEstaDigitando}
+                            />
+                            <Pagination 
+                            page={page} 
+                            totalPage={storeHome.listaFilme.total_pages} 
+                            anteriorPagina={anteriorPagina}
+                            proximaPagina={proximaPagina}
+                            />
+                            <ListaFilm 
+                            results={ 
+                            storeHome.listaFilme.results
+                            } 
+                            
+                            />
+                    </>
+                    }
                     
-                    />
                 </ConfigView>
         </View>
     );

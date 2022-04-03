@@ -1,19 +1,11 @@
-import { action, makeObservable, observable } from "mobx";
+import { makeAutoObservable } from "mobx";
 import api from "../../api";
 import Filme from "../../types/filme";
 
 
-
 export class StoreFilme {
     constructor(){
-        makeObservable(
-            this,
-            {
-                carregando: observable,
-                filme: observable,
-                buscarFilme: action
-            }
-        );
+        makeAutoObservable(this);
     }
     public carregando: boolean = false;
     public filme: Filme = {
@@ -44,18 +36,25 @@ export class StoreFilme {
         vote_counter:0
 
     }
+    public setFilme(filme: Filme){
+        this.filme = filme;
+    }
+    public setCarregando(carregando: boolean){
+        this.carregando = carregando;
+    }
     public buscarFilme = async (id: string) => {
         if(this.carregando){
             return;
         }
-        this.carregando = true
+        this.setCarregando(true);
         
         try {
-            this.filme = await api.getFilme(id);
-        } catch (e) {
+            const filme = await api.getFilme(id);
+            this.setFilme(filme);
+        }catch (e) {
             console.error(e)
         }finally{
-            this.carregando= false
+            this.setCarregando(false);
         }
     }
 

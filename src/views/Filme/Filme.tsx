@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import React, { useEffect } from "react"  
 import { useParams } from "react-router-dom";
@@ -26,33 +27,45 @@ const Filme =() => {
         <View>
             <NavBar />
             <DivScroll>
-                <BoxInformaFilme>
-                    <InformaFilme  
-                    posterPath={storeFilme.filme.poster_path}
-                    title={storeFilme.filme.title}
-                    realeseDate={storeFilme.filme.release_date}
-                    spokenLanguages={storeFilme.filme.spoken_languages} 
+                {
+                    storeFilme.carregando ?
+                    <CircularProgress 
+                    variant="indeterminate"
+                    color="secondary"
+                    />
+                    :
+                    <>
+                        <BoxInformaFilme>
+                        <InformaFilme  
+                        posterPath={storeFilme.filme.poster_path}
+                        title={storeFilme.filme.title}
+                        realeseDate={storeFilme.filme.release_date}
+                        spokenLanguages={storeFilme.filme.spoken_languages} 
+                        
+                        />
+                    </BoxInformaFilme>
+                    <BoxTagLineFilme>
+                        <TagLineFilme 
+                        tagline={storeFilme.filme.tagline} 
+                        />
+                    </BoxTagLineFilme>
+                    <BoxOverviewFilme>
+                        <OverViewFilme  
+                        overview={storeFilme.filme.overview}
+                        voteAverage={storeFilme.filme.vote_average}
+                        />
+                    </BoxOverviewFilme>
+                    <BoxListCompanies>
+                        <ListProductions
+                        genero={storeFilme.filme.genres}
+                        productionCompanies={storeFilme.filme.production_companies}
+                        productionCountries={storeFilme.filme.production_countries}
+                        />
+                    </BoxListCompanies>
                     
-                    />
-                </BoxInformaFilme>
-                <BoxTagLineFilme>
-                    <TagLineFilme 
-                    tagline={storeFilme.filme.tagline} 
-                    />
-                </BoxTagLineFilme>
-                <BoxOverviewFilme>
-                    <OverViewFilme  
-                    overview={storeFilme.filme.overview}
-                    voteAverage={storeFilme.filme.vote_average}
-                    />
-                </BoxOverviewFilme>
-                <BoxListCompanies>
-                    <ListProductions
-                    genero={storeFilme.filme.genres}
-                    productionCompanies={storeFilme.filme.production_companies}
-                    productionCountries={storeFilme.filme.production_countries}
-                    />
-                </BoxListCompanies>
+                    </>
+                }
+                
             </DivScroll>
         </View>
     );

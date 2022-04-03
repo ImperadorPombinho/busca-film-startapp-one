@@ -1,35 +1,57 @@
-import { action, makeObservable, observable } from "mobx";
+import {  makeAutoObservable } from "mobx";
 import api from "../../api";
 import {ListaFilmes} from "../../types/listaFilme";
 
 export class StoreHome{
     constructor(){
 
-        makeObservable(
-            
-            this,
-            {
-                listaFilme: observable,
-                carregando: observable,
-                buscarFilmes: action,
-                buscarFilmesPesquisados: action
-            }
-            
-            );
+        makeAutoObservable(this);
     }
     public listaFilme: ListaFilmes = {
         page: 1,
         results: [],
         total_results: 1,
         total_pages: 1
+    };
+    public carregando: boolean = false;
+
+    public setListaFilme(listaFilme: ListaFilmes){
+        this.listaFilme = listaFilme;
     }
-    public carregando: boolean = false
+    public setCarregando(carregando: boolean){
+        this.carregando = carregando;
+    }
+
 
     public buscarFilmes = async (page: number) => {
-        this.listaFilme = await api.getFilmes(page);   
+        if(this.carregando){
+            return;
+        }
+        this.setCarregando(true);
+        try {
+            const listaFilme =  await api.getFilmes(page);
+            this.setListaFilme(listaFilme);
+        } catch (error) {
+            console.error(error);
+        }finally{
+            this.setCarregando(false);
+        }
+           
     }
     public buscarFilmesPesquisados = async (termoPesquisado: string, page: number) => {
-        this.listaFilme = await api.getFilmeBuscado(termoPesquisado, page);
+        if(this.carregando){
+            return;
+        }
+        this.setCarregando(true);
+        try {
+            const listaFilmePesquisado =  await api.getFilmeBuscado(termoPesquisado, page);
+            this.setListaFilme(listaFilmePesquisado);
+        }catch (error) {
+            console.error(error);
+        }finally{
+            this.setCarregando(false);
+        }
+        
     }
 
 }

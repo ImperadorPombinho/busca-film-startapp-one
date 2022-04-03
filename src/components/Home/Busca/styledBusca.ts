@@ -34,11 +34,6 @@ export const Titulo = styled.h3`
     }
 
 `
-export const ConfigTextField = styled.div`
-    width: 80%;
-    height: 60%;
-    background-color: inherit;
-`
 export const Search = styled(TextField)`
     background-color: #C4C4C4;
     

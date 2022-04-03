@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { BoxBusca, ConfigTextField, Titulo, Search } from "./styledBusca";
+import React from "react";
+import { BoxBusca, Titulo, Search } from "./styledBusca";
 
 type Param = {
     setEstaDigitando: Function,
