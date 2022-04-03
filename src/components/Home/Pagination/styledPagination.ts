@@ -8,6 +8,14 @@ export const BoxPagination = styled.nav`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    @media only screen and (max-width: 700px){
+       margin-top: 4%;
+       height: 20%;
+       width: 70%;
+    }
+    @media only screen and (max-width: 400px){
+       width: 90%;
+    }
 `;
 
 export const TextPagina = styled.p`

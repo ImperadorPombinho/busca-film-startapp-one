@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const BoxList = styled.div`
     
-    height: 60%;
+    height: 75%;
     border-radius: 30px;
     width: 25%;
     background-color:#000;
@@ -12,7 +12,10 @@ export const BoxList = styled.div`
     justify-content: space-evenly;
     align-items: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
+    @media only screen and (max-width: 600px){
+        width: 80%;
+        margin-bottom: 4%;
+    }
 `;
 
 

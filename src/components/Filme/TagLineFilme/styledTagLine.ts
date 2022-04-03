@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
 export const TagLine = styled.h3`
-    color: white;
+    color: #FFF;
     font-size: 25px;
+    @media only screen and (max-width: 300px){
+        font-size: 15px;
+        margin-bottom: 3.5%;
+        
+    }
 `;
 

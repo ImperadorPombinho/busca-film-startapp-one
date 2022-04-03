@@ -14,6 +14,22 @@ export const BoxLista = styled.div`
     ::-webkit-scrollbar{
         display: none;
     }
+    @media only screen and (max-width: 700px) {
+        height: 100%;
+        width: 100%;
+        background-color: inherit;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        
+        justify-content: flex-start;
+        align-items: center;
+        overflow-y: scroll;
+        ::-webkit-scrollbar{
+        display: none;
+        }
+        margin-top: 2.5%;
+    }
 `;
 
 export const CardFilme = styled(Link)`
@@ -32,20 +48,30 @@ export const CardFilme = styled(Link)`
     :hover{
         transition: 0.74s;
     }
+    @media only screen and (max-width: 700px) {
+        height: 100%;
+        width: 29%;
+        background-color: #000;
+    }
     
 
 
 `;
 export const TituloFilme = styled.h2`
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 600;
     color: ${props => props.color};
     text-align: center;
     margin-top: 2px;
+    @media only screen and (max-width: 700px){
+        color: white;
+        font-size: 20px;
+    }
 
 `;
 export const PosterFilme = styled.img`
     width: 100%;
     height: 90%;
     border-radius: 20px;
+
 `;

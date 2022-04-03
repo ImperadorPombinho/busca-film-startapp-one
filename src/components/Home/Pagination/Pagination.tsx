@@ -26,28 +26,24 @@ const Pagination = ({page, totalPage, anteriorPagina, proximaPagina}: Param) => 
 
     return(
         <BoxPagination>
-            {
-                page === 1 ? null:
                 <Botao
                 size="medium"
                 variant="contained"
+                disabled={page === 1? true: false}
                 onClick={() => {anteriorPagina()}}
                 >
                     Anterior
                 </Botao>
-            }
             
             <TextPagina>{page} de {totalPage}</TextPagina>
-            {
-                page === totalPage ? null:
                 <Botao 
                 size="medium"
                 variant="contained"
+                disabled={page === totalPage ? true: false}
                 onClick={() => {proximaPagina()}}
                 >
                     Próximo
                 </Botao>
-            }
 
         </BoxPagination>
     );

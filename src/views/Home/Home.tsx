@@ -56,7 +56,7 @@ const Home: React.FC = () => {
                 <ConfigView>
                     <Busca 
                     setTextoBusca={setTextoBusca}
-                    intervalo={intervalo}
+        
                     setEstaDigitando={setEstaDigitando}
                     />
                     <Pagination 

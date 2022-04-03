@@ -4,9 +4,8 @@ import { BoxBusca, ConfigTextField, Titulo, Search } from "./styledBusca";
 type Param = {
     setEstaDigitando: Function,
     setTextoBusca: Function,
-    intervalo: number
 }
-const Busca = ({setTextoBusca, intervalo, setEstaDigitando}: Param) => {
+const Busca = ({setTextoBusca, setEstaDigitando}: Param) => {
     
 
     return(
@@ -29,7 +28,6 @@ const Busca = ({setTextoBusca, intervalo, setEstaDigitando}: Param) => {
                     
                 }}
                 onKeyUp={() => {
-                    clearTimeout(intervalo)
                     setEstaDigitando(false)
                 }}
                 onKeyDown={()=> {
