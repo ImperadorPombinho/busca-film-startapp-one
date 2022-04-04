@@ -28,10 +28,10 @@ const Home: React.FC = () => {
         console.log(page);
         if((intervalo >= 300 && (textoBusca !== "" || textoBusca !== null)) || (textoAntigo === textoBusca && textoAntigo !== "")){
             storeHome.buscarFilmesPesquisados(textoBusca, page);
-            console.log("total: "+storeHome.listaFilme.total_pages);
-            if(page > storeHome.listaFilme.total_pages){
-                storeHome.buscarFilmesPesquisados(textoBusca, 1);
+            if(storeHome.pesquisa){
                 setPage(1);
+            }else{
+                setPage(page);
             }
             setIntervalo(0);
             setEstaDigitando(true);

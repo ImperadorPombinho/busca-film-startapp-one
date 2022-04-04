@@ -89,15 +89,8 @@ export const BoxListCompanies = styled.div`
         padding-top: 15%;
         
     }
-    @media only screen and (max-height: 500px){
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: center;
-        height: 100%;
-        
-        
+    @media only screen and(max-height: 500px) {
+        padding-top: 15%;
     }
     @media only screen and (max-height: 380px){
         margin-top: 10%;

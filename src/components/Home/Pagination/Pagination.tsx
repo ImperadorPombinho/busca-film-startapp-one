@@ -34,13 +34,13 @@ const Pagination = ({page, totalPage, anteriorPagina, proximaPagina}: Param) => 
                     width: "30%"
                 
                 }}
-                disabled={page === 1? true: false}
+                disabled={page === 1 || page > totalPage? true: false}
                 onClick={() => {anteriorPagina()}}
                 >
                     Anterior
                 </Botao>
             
-            <TextPagina>{page} de {totalPage}</TextPagina>
+            <TextPagina>{page > totalPage ? 1 : page} de {totalPage}</TextPagina>
                 <Botao 
                 size="medium"
                 variant="contained"
@@ -49,7 +49,7 @@ const Pagination = ({page, totalPage, anteriorPagina, proximaPagina}: Param) => 
                     width: "30%"
                 
                 }}
-                disabled={page === totalPage ? true: false}
+                disabled={page === totalPage || page > totalPage ? true: false}
                 onClick={() => {proximaPagina()}}
                 >
                     Próximo

@@ -14,6 +14,11 @@ export class StoreHome{
         total_pages: 1
     };
     public carregando: boolean = false;
+    public pesquisa: boolean = false;
+
+    public setPesquisa(pesquisa: boolean){
+        this.pesquisa = pesquisa;
+    }
 
     public setListaFilme(listaFilme: ListaFilmes){
         this.listaFilme = listaFilme;
@@ -21,6 +26,7 @@ export class StoreHome{
     public setCarregando(carregando: boolean){
         this.carregando = carregando;
     }
+    
 
 
     public buscarFilmes = async (page: number) => {
@@ -44,7 +50,13 @@ export class StoreHome{
         }
         this.setCarregando(true);
         try {
-            const listaFilmePesquisado =  await api.getFilmeBuscado(termoPesquisado, page);
+            let listaFilmePesquisado =  await api.getFilmeBuscado(termoPesquisado, page);
+            if(listaFilmePesquisado.total_pages < page){
+                listaFilmePesquisado =  await api.getFilmeBuscado(termoPesquisado, 1);
+                this.setPesquisa(true);
+            }else{
+                this.setPesquisa(false);
+            }
             this.setListaFilme(listaFilmePesquisado);
         }catch (error) {
             console.error(error);
