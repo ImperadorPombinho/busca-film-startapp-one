@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 export const BoxOverview = styled.div`
     background-color: #000;
-    height: 80%;
+    height: 90%;
     width: 30%;
+    margin-bottom: 2.5%;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
@@ -22,26 +23,59 @@ export const BoxOverview = styled.div`
         width: 80%;
         height: 45%;
     }
+    @media only screen and (max-height: 550px){
+        width: 40%;
+        height: 75%;
+        
+    }
+    @media only screen and (max-height: 400px){
+        width: 70%;
+        margin-top: 5%;
+    }
 `;
 export const TituloOverview = styled.h2`
     
     color: white;
     font-size: 25px;
+    @media only screen and (max-height: 550px){
+        font-size: 19px;
+        font-weight: 500;
+    }
+    @media only screen and (max-width: 300px){
+        font-size: 16px;
+        font-weight: 500;
+    }
 `;
 
 export const Overview = styled.p`
     width: 80%;
     text-align: center;
     color: white;
-    font-size: 17px;
+    font-size: 15px;
+    @media only screen and (max-height: 550px){
+        font-size: 13px;
+        font-weight: 500;
+    }
+    @media only screen and (max-width: 300px){
+        font-size: 10px;
+        font-weight: 500;
+    }
 
 `;
 
 export const TituloNota = styled.h2`
     color: white;
     font-size: 25px;
+    @media only screen and (max-height: 550px){
+        font-size: 19px;
+        font-weight: 500;
+    }
 `;
 export const Nota = styled.p`
     color: ${a => a.color};
     font-size: 50px;
+    @media only screen and (max-height: 550px){
+        font-size: 30px;
+        font-weight: 500;
+    }
 `;

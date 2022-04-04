@@ -10,12 +10,12 @@ import { StoreHome } from "./StoreHome";
 import {  ConfigView } from "./styledHome";
 
 const Home: React.FC = () => {
-    const [page, setPage] = useState(1)
+    const [page, setPage] = useState<number>(1)
     const storeHome = useLocalObservable(() => new StoreHome());
     const [estaDigitando, setEstaDigitando] = useState<boolean>(true);
     const [textoBusca, setTextoBusca] = useState<string>("");
     const [textoAntigo, setTextoAntigo] = useState<string>("");
-    const [intervalo, setIntervalo] = useState<number>(0)
+    let [intervalo, setIntervalo] = useState<number>(0)
     useEffect(() =>{
         console.log(page)
         console.log(textoBusca)
@@ -24,21 +24,33 @@ const Home: React.FC = () => {
         }else{
             setIntervalo(0);
         }
-        console.log("esperando: " + intervalo)
+        console.log("esperando: " + intervalo);
+        console.log(page);
         if((intervalo >= 300 && (textoBusca !== "" || textoBusca !== null)) || (textoAntigo === textoBusca && textoAntigo !== "")){
             storeHome.buscarFilmesPesquisados(textoBusca, page);
-            setIntervalo(0)
-            setEstaDigitando(true)
-            setTextoAntigo(textoBusca)
+            console.log("total: "+storeHome.listaFilme.total_pages);
+            if(page > storeHome.listaFilme.total_pages){
+                storeHome.buscarFilmesPesquisados(textoBusca, 1);
+                setPage(1);
+            }
+            setIntervalo(0);
+            setEstaDigitando(true);
+            setTextoAntigo(textoBusca);
 
         }else if((textoBusca === "" || textoBusca === null)){
             storeHome.buscarFilmes(page);
-            setIntervalo(0)
-            setEstaDigitando(true)
-            setTextoAntigo("")
+            setIntervalo(0);
+            setEstaDigitando(true);
+            setTextoAntigo("");
         }
         
-    }, [page, storeHome, estaDigitando, textoBusca, intervalo, textoAntigo]);
+    }, [page, 
+        storeHome, 
+        estaDigitando, 
+        textoBusca, 
+        intervalo, 
+        textoAntigo]
+    );
 
     const proximaPagina = () => {
         if(page < storeHome.listaFilme.total_pages){

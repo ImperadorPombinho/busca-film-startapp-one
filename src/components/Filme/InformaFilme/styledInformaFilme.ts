@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const BoxImagem = styled.div`
     background-color: #000;
     height: 300px;
-    width: 300px;
+    width: 200px;
+    margin-top: 5%;
     border-radius: 20px;
     display: flex;
     flex-direction: row;
@@ -18,6 +19,14 @@ export const BoxImagem = styled.div`
         width: 174px;
         margin-bottom: 3%;
     }
+    @media only screen and (max-height: 550px) {
+        height: 200px;
+        width: 200px;
+        margin-top: 10%;
+    }
+    @media only screen and (max-height: 400px) {
+        margin-top: 59%;
+    }
 
 `;
 export const ImagemFilme =    styled.img`
@@ -30,6 +39,7 @@ export const InformaBox = styled.div`
     border-radius: 20px;
     height: 90%;
     display: flex;
+    margin-top: 5%;
     background-color: #000;
     flex-direction: column;
     justify-content: center;
@@ -42,6 +52,17 @@ export const InformaBox = styled.div`
         height: 70%;
         width: 80%;
     }
+    @media only screen and (max-height: 550px){
+        
+        height: 100%;
+        
+    }
+    @media only screen and (max-height: 400px){
+        padding: 3%;
+        height: 100%;
+        
+    }
+
 
 `
 
@@ -52,6 +73,11 @@ export const TituloDoFilme = styled.h1`
     @media only screen and (max-width: 735px) {
         font-size: 20px;
         text-decoration: underline;
+    }
+    @media only screen and (max-height: 550px){
+        font-size: 20px;
+        
+        
     }
 `
 export const InformacoesFilme = styled.p`

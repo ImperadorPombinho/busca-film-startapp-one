@@ -18,7 +18,7 @@ const Busca = ({setTextoBusca, setEstaDigitando, textoBusca}: Param) => {
                 size="small"
                 margin="normal"
                 style={{
-                    height: "23%",
+                    height: "20%",
                     width: "80%"
                 }}
                 value={textoBusca}

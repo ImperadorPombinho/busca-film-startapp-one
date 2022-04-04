@@ -20,6 +20,21 @@ export const BoxBusca = styled.div`
         margin-top: 25%;
         
     }
+    @media only screen and (max-height: 600px){
+        height: 30%;
+        width: 50%;
+        margin-top: 5.5%;
+
+    }
+    @media only screen and (max-height: 460px){
+        margin-top: 3.5%;
+        justify-content: flex-start;
+    }
+    @media only screen and (max-height: 320px){
+        margin-top: 4.5%;
+        justify-content: flex-start;
+        height: 50%;
+    }
 `
 export const Titulo = styled.h3`
     font-size: 26px;
@@ -32,9 +47,13 @@ export const Titulo = styled.h3`
         font-size: 14px;
         
     }
+    @media only screen and (max-height: 460px){
+        font-size: 14px;
+    }
 
 `
 export const Search = styled(TextField)`
     background-color: #C4C4C4;
+    
     
 `

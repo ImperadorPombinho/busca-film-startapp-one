@@ -1,7 +1,6 @@
 import React from "react";
 import {  BoxImagem, BoxLinguagem, ImagemFilme, InformaBox, InformacoesFilme, TituloDoFilme } from "./styledInformaFilme";
 import Teste from '../../../assets/teste.svg'
-import { LinhaBranca } from "../styledComponentsFilme";
 import { SpokenLanguages } from "../../../types/filme";
 
 

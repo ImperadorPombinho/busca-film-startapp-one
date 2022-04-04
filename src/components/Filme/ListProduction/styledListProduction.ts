@@ -24,6 +24,9 @@ export const TituloBox = styled.h2`
     color: white;
     font-size: 20px;
     text-align: center;
+    @media only screen and (max-height: 400px){
+        font-size: 15px;
+    }
 `;
 
 export const ListaTexto = styled.div`
@@ -39,4 +42,7 @@ export const Texto = styled.p`
     padding: 1.5px;
     font-size: 16px;
     text-align: center;
+    @media only screen and (max-height: 400px){
+        font-size: 12px;
+    }
 `;

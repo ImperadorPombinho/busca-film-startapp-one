@@ -8,5 +8,11 @@ export const TagLine = styled.h3`
         margin-bottom: 3.5%;
         
     }
+    @media only screen and (max-height: 600px){
+        padding-top: 15%;
+        font-size: 15px;
+        margin-bottom: 3.5%;
+        
+    }
 `;
 

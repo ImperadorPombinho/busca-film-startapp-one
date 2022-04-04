@@ -16,6 +16,10 @@ export const BoxPagination = styled.nav`
     @media only screen and (max-width: 400px){
        width: 90%;
     }
+    @media only screen and (max-height: 600px){
+       width: 100%;
+       
+    }
 `;
 
 export const TextPagina = styled.p`

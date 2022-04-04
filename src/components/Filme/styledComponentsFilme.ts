@@ -5,6 +5,7 @@ export const LinhaBranca = styled.div`
     
     width: ${props => props.defaultValue}%;
     border: 1px solid white;
+
 `;
 export const LinhaPreta = styled.div `
     height: 1%;

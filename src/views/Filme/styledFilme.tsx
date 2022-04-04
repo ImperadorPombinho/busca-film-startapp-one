@@ -20,6 +20,16 @@ export const BoxInformaFilme = styled.div`
         width: 100%;
         padding-top: 20%;
     }
+    @media only screen and (max-height: 400px){
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        height: 50%;
+        width: 100%;
+        padding-top: 25%;
+    }
 `;
 export const BoxTagLineFilme = styled.div`
     background-color: inherit;
@@ -35,6 +45,7 @@ export const BoxTagLineFilme = styled.div`
 export const BoxOverviewFilme = styled.div`
     width: 100%;
     background-color: inherit;
+    padding-top: 5%;
     height: 50%;
     display: flex;
     flex-direction: row;
@@ -48,6 +59,15 @@ export const BoxOverviewFilme = styled.div`
         align-items: center;
         height: 95%;
         padding-top: 5%;
+    }
+    @media only screen and (max-height: 600px){
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+        padding-top: 10%;
     }
 
 `;
@@ -66,7 +86,22 @@ export const BoxListCompanies = styled.div`
         justify-content: space-evenly;
         align-items: center;
         height: 95%;
-        padding-top: 5%;
+        padding-top: 15%;
+        
+    }
+    @media only screen and (max-height: 500px){
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+        
+        
+    }
+    @media only screen and (max-height: 380px){
+        margin-top: 10%;
+        
         
     }
 

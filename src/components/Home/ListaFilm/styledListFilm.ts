@@ -30,6 +30,22 @@ export const BoxLista = styled.div`
         }
         margin-top: 2.5%;
     }
+    @media only screen and (max-height: 420px) {
+        height: 100%;
+        width: 100%;
+        background-color: inherit;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        
+        justify-content: flex-start;
+        align-items: center;
+        overflow-y: scroll;
+        ::-webkit-scrollbar{
+        display: none;
+        }
+        margin-top: 2.5%;
+    }
 `;
 
 export const CardFilme = styled(Link)`
@@ -53,6 +69,11 @@ export const CardFilme = styled(Link)`
         width: 29%;
         background-color: #000;
     }
+    @media only screen and (max-height: 420px){
+        height: 100%;
+        width: 29%;
+        background-color: #000;
+    }
     
 
 
@@ -66,6 +87,10 @@ export const TituloFilme = styled.h2`
     @media only screen and (max-width: 700px){
         color: white;
         font-size: 20px;
+    }
+    @media only screen and (max-height: 420px){
+        color: white;
+        font-size: 16px;
     }
 
 `;

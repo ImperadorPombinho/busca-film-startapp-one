@@ -51,8 +51,8 @@ export class StoreFilme {
         try {
             const filme = await api.getFilme(id);
             this.setFilme(filme);
-        }catch (e) {
-            console.error(e)
+        }catch (error) {
+            console.error(error)
         }finally{
             this.setCarregando(false);
         }

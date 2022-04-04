@@ -15,7 +15,7 @@ type Param = {
     id: string
 }
 
-const Filme =() => {
+const Filme: React.FC =() => {
     const {id} = useParams<Param>();
     const storeFilme = useLocalObservable(() => new StoreFilme());
     useEffect(() => {
@@ -36,32 +36,32 @@ const Filme =() => {
                     :
                     <>
                         <BoxInformaFilme>
-                        <InformaFilme  
-                        posterPath={storeFilme.filme.poster_path}
-                        title={storeFilme.filme.title}
-                        realeseDate={storeFilme.filme.release_date}
-                        spokenLanguages={storeFilme.filme.spoken_languages} 
-                        
-                        />
-                    </BoxInformaFilme>
-                    <BoxTagLineFilme>
-                        <TagLineFilme 
-                        tagline={storeFilme.filme.tagline} 
-                        />
-                    </BoxTagLineFilme>
-                    <BoxOverviewFilme>
-                        <OverViewFilme  
-                        overview={storeFilme.filme.overview}
-                        voteAverage={storeFilme.filme.vote_average}
-                        />
-                    </BoxOverviewFilme>
-                    <BoxListCompanies>
-                        <ListProductions
-                        genero={storeFilme.filme.genres}
-                        productionCompanies={storeFilme.filme.production_companies}
-                        productionCountries={storeFilme.filme.production_countries}
-                        />
-                    </BoxListCompanies>
+                            <InformaFilme  
+                            posterPath={storeFilme.filme.poster_path}
+                            title={storeFilme.filme.title}
+                            realeseDate={storeFilme.filme.release_date}
+                            spokenLanguages={storeFilme.filme.spoken_languages} 
+                            
+                            />
+                        </BoxInformaFilme>
+                        <BoxTagLineFilme>
+                            <TagLineFilme 
+                            tagline={storeFilme.filme.tagline} 
+                            />
+                        </BoxTagLineFilme>
+                        <BoxOverviewFilme>
+                            <OverViewFilme  
+                            overview={storeFilme.filme.overview}
+                            voteAverage={storeFilme.filme.vote_average}
+                            />
+                        </BoxOverviewFilme>
+                        <BoxListCompanies>
+                            <ListProductions
+                            genero={storeFilme.filme.genres}
+                            productionCompanies={storeFilme.filme.production_companies}
+                            productionCountries={storeFilme.filme.production_countries}
+                            />
+                        </BoxListCompanies>
                     
                     </>
                 }

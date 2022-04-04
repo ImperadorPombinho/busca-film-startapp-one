@@ -29,6 +29,11 @@ const Pagination = ({page, totalPage, anteriorPagina, proximaPagina}: Param) => 
                 <Botao
                 size="medium"
                 variant="contained"
+                style={{
+                    height: "50%",
+                    width: "30%"
+                
+                }}
                 disabled={page === 1? true: false}
                 onClick={() => {anteriorPagina()}}
                 >
@@ -39,6 +44,11 @@ const Pagination = ({page, totalPage, anteriorPagina, proximaPagina}: Param) => 
                 <Botao 
                 size="medium"
                 variant="contained"
+                style={{
+                    height: "50%",
+                    width: "30%"
+                
+                }}
                 disabled={page === totalPage ? true: false}
                 onClick={() => {proximaPagina()}}
                 >
