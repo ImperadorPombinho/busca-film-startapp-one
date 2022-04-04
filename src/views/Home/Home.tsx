@@ -17,22 +17,13 @@ const Home: React.FC = () => {
     const [textoAntigo, setTextoAntigo] = useState<string>("");
     let [intervalo, setIntervalo] = useState<number>(0)
     useEffect(() =>{
-        console.log(page)
-        console.log(textoBusca)
         if(!estaDigitando){
             setIntervalo(intervalo + 1);
         }else{
             setIntervalo(0);
         }
-        console.log("esperando: " + intervalo);
-        console.log(page);
         if((intervalo >= 300 && (textoBusca !== "" || textoBusca !== null)) || (textoAntigo === textoBusca && textoAntigo !== "")){
             storeHome.buscarFilmesPesquisados(textoBusca, page);
-            if(storeHome.pesquisa){
-                setPage(1);
-            }else{
-                setPage(page);
-            }
             setIntervalo(0);
             setEstaDigitando(true);
             setTextoAntigo(textoBusca);

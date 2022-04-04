@@ -92,6 +92,10 @@ export const TituloFilme = styled.h2`
         color: white;
         font-size: 16px;
     }
+    @media only screen and (max-width: 300px){
+        color: white;
+        font-size: 13px;
+    }
 
 `;
 export const PosterFilme = styled.img`
