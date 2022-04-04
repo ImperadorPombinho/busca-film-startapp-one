@@ -1,50 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { BoxLista, CardFilme, PosterFilme, TituloFilme } from "./styledListFilm";
-import Teste from '../../../assets/teste.svg'
+import { Resultados } from "../../../types/listaFilme";
+import Teste from "../../../assets/teste.svg"
 
-interface teste{
-    nomeFilme: string,
-    imagem: typeof Teste
+
+type Param = {
+    results: Resultados[]
 }
-
-
-const array: teste[] = [
-    {
-        nomeFilme: "ele sim",
-        imagem: Teste
-    },
-    {
-        nomeFilme: "ele nao casou",
-        imagem: Teste
-    },
-    {
-        nomeFilme: "ele ja",
-        imagem: Teste
-    },
-    {
-        nomeFilme: "ele ssss",
-        imagem: Teste
-    },
-    {
-        nomeFilme: "ele siaaam",
-        imagem: Teste
-    },
-    {
-        nomeFilme: "ele ssssim",
-        imagem: Teste
-    },
-
-]
-
-
-const ListaFilm = () => {
+const ListaFilm = ({results}: Param) => {
+    const urlBasicImage = "https://image.tmdb.org/t/p/w500"
+    const urlPaginaFilme = "/filmes/"
+    const [mouseFoco, setMouseFoco] = useState<boolean>(false);
+    const [indice, setIndice] = useState<number>(-1);
     return(
         <BoxLista>
             {
-                array.map((resposta) => (
-                    <CardFilme key={resposta.nomeFilme}>
-                        <PosterFilme src={resposta.imagem} alt="alou"/> 
-                        <TituloFilme>{resposta.nomeFilme}</TituloFilme>
+                results.map((resposta) => (
+                    <CardFilme 
+                    to={urlPaginaFilme + resposta.id} 
+                    key={resposta.id}
+                    color={mouseFoco && indice === resposta.id  ? "#000": "#4D7388"}
+                    >
+                        <PosterFilme 
+                        onMouseOver={()=> {
+                            setMouseFoco(true);
+                            setIndice(resposta.id);
+                        }}
+                        onMouseOut={() => {
+                            setMouseFoco(false);
+                            setIndice(-1);
+                        }}
+                        src={
+                            
+                            resposta.poster_path === null ?
+                            Teste:
+                            urlBasicImage + resposta.poster_path
+                            } 
+                            alt={resposta.title}/> 
+                        <TituloFilme
+                        color={mouseFoco && indice === resposta.id ? "white" : "#4D7388"}
+                        >
+                            {resposta.title}
+                        </TituloFilme>
                     </CardFilme>
                 ))
             }

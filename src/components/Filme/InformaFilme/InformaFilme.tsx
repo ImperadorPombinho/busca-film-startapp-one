@@ -1,18 +1,54 @@
 import React from "react";
-import { BoxImagem, ImagemFilme, InformaBox, InformacoesFilme, TituloDoFilme, LinhaBranca } from "./styledInformaFilme";
+import {  BoxImagem, BoxLinguagem, ImagemFilme, InformaBox, InformacoesFilme, TituloDoFilme } from "./styledInformaFilme";
 import Teste from '../../../assets/teste.svg'
+import { SpokenLanguages } from "../../../types/filme";
 
-const InformaFilme = () => {
+
+type Param = {
+    posterPath: string | null,
+    title: string,
+    realeseDate: string
+    spokenLanguages: SpokenLanguages[]
+}
+
+const InformaFilme = ({posterPath, title, realeseDate, spokenLanguages}:Param) => {
+    const urlBasicImage = "https://image.tmdb.org/t/p/w500"
     return(
         <>
         <BoxImagem>
-            <ImagemFilme src={Teste} alt="Teste" />
+            <ImagemFilme src={
+                posterPath === null ?
+                Teste :
+                urlBasicImage + posterPath
+            } 
+            alt={title} />
         </BoxImagem>
         <InformaBox>
-            <TituloDoFilme>Titulo do Filme!</TituloDoFilme>
-            <LinhaBranca />
-            <InformacoesFilme>Data de lançamento</InformacoesFilme>
-            <InformacoesFilme>Genero</InformacoesFilme>
+            <TituloDoFilme>{title}</TituloDoFilme>
+            
+            <InformacoesFilme color="white">{realeseDate}</InformacoesFilme>
+            <BoxLinguagem> 
+                {
+                    spokenLanguages.map(linguas => (
+                            <>                 
+                                <InformacoesFilme 
+                                key={linguas.name}
+                                color="white" 
+                                
+                                >
+                                    {linguas.name}
+                                </InformacoesFilme>
+                                <InformacoesFilme
+                                color="green"
+                                >
+                                    /
+                                </InformacoesFilme>
+                                
+                            </>
+                    ))
+                }
+            </BoxLinguagem>
+
         </InformaBox>
         
         </>

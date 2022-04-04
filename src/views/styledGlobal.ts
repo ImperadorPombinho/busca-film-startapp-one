@@ -1,7 +1,21 @@
 import styled from "styled-components"
 
 export const View = styled.div`
-    width: 100vw;
     height: 100vh;
-    background-color: #F5BD19;
+    width: 100vw;
+    background-color: #4D7388;
+    overflow: scroll;
+    ::-webkit-scrollbar{
+        display: none;
+    }
+
 `;
+export const DivScroll = styled.div`
+    height: 100%;
+    width: 100%;
+    background-color: inherit;
+    overflow-y: scroll;
+    ::-webkit-scrollbar{
+        display: none;
+    }
+`

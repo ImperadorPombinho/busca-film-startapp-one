@@ -1,6 +1,6 @@
 import React from "react";
 import { BoxBar, ConfigTitulo, LogoNavBar } from "./styledNavBar";
-import Logo from '../../assets/buscaFilm-logo.svg'
+import Logo from '../../assets/logoBuscaFilm.svg'
 
 const NavBar = () => {
     return(

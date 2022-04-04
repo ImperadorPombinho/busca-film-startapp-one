@@ -1,19 +1,42 @@
 import React from "react";
-import { BoxBusca, ConfigTextField, Titulo, Search } from "./styledBusca";
+import { BoxBusca, Titulo, Search } from "./styledBusca";
 
+type Param = {
+    setEstaDigitando: Function,
+    setTextoBusca: Function,
+    textoBusca: string
+}
+const Busca = ({setTextoBusca, setEstaDigitando, textoBusca}: Param) => {
+    
 
-const Busca = () => {
     return(
         <BoxBusca>
             <Titulo>Busque Aqui!</Titulo>
-            <ConfigTextField>
                 <Search 
                 variant="outlined"
                 fullWidth
-                size="medium"
+                size="small"
                 margin="normal"
+                style={{
+                    height: "20%",
+                    width: "80%"
+                }}
+                value={textoBusca}
+
+                onChange={(event) => {
+                    event.preventDefault();
+                    setTextoBusca(event.target.value);
+                    
+                    
+                }}
+                onKeyUp={() => {
+                    setEstaDigitando(false)
+                }}
+                onKeyDown={()=> {
+                    setEstaDigitando(true)
+                }}
+
                 />
-            </ConfigTextField>
         </BoxBusca>
     )
 }

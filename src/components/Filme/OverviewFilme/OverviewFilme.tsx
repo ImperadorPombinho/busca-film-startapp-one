@@ -1,21 +1,36 @@
 import React from "react";
-import { BoxNota, BoxOverview, LinhaBranca, Nota, Overview, TituloNota, TituloOverview } from "./styledOverviewFilme";
+import { LinhaBranca } from "../styledComponentsFilme";
+import {  BoxOverview, Nota, Overview, TituloNota, TituloOverview } from "./styledOverviewFilme";
+
+type Param = {
+    overview: string,
+    voteAverage: number
+}
+const OverViewFilme = ({overview, voteAverage}: Param) => {
+    function saberCorNota(nota: number): string{
+        if(nota >= 7.0){
+            return "#3FD74F";
+        }else if(nota >= 5.0 && nota < 7.0){
+            return "white";
+        }else{
+            return "#CE0404"
+        }
+    }
 
 
-const OverViewFilme = () => {
+
     return(
         <>
         <BoxOverview>
             <TituloOverview>Sinopse</TituloOverview>
-            <LinhaBranca />
-            <Overview>ahsgdjadgsdjfsdfsfsfjsfsdfscb jbchdsdshgshdfsdf</Overview>
-
+            <LinhaBranca defaultValue={80} />
+            <Overview>{overview}</Overview>
         </BoxOverview>
-        <BoxNota>
-            <TituloNota>Nota</TituloNota>
-            <LinhaBranca />
-            <Nota color="white" >7.9</Nota>
-        </BoxNota>
+        <BoxOverview>
+            <TituloNota>Notas</TituloNota>
+            <LinhaBranca defaultValue={80} />
+            <Nota color={saberCorNota(voteAverage)} >{voteAverage}</Nota>
+        </BoxOverview>
         </>
     );
 }

@@ -1,12 +1,21 @@
 import React from "react";
-import { LinhaPreta, TagLine } from "./styledTagLine";
+import { LinhaBranca } from "../styledComponentsFilme";
+import { TagLine } from "./styledTagLine";
 
-
-const TagLineFilme = () => {
+type Param = {
+    tagline: string | null
+}
+const TagLineFilme = ({tagline}: Param) => {
     return(
         <>
-            <TagLine>Tagline</TagLine>
-            <LinhaPreta />
+            {
+                tagline === null || tagline === "" ?
+                <TagLine>Esse Filme não contém Slogan</TagLine> 
+                :
+                <TagLine>{tagline}</TagLine>
+            }
+            
+            <LinhaBranca defaultValue={100} />
         </>
     );
 }
